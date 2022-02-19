@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter,Routes,Route,useParams  } from "react-router-dom";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
 import Register from './components/auth/Register';
 import Login from './components/auth/Login'
 import Payment from './components/payments/Payment';
