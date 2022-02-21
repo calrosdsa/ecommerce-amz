@@ -6,10 +6,10 @@ import setAuthToken from '../utils/setAuthToken'
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-
+const URL_DEPLOY = 'https://amazon-cln.herokuapp.com/'
 export const set_orders = (order) =>async(dispatch) =>{
    
-   axios.post('http://localhost:8000/order/',order)
+   axios.post(`${URL_DEPLOY}order/`,order)
    localStorage.removeItem('cartItems')
    
    dispatch({
@@ -23,7 +23,7 @@ export const set_histories = () =>async(dispatch)=>{
     if (token) {
       setAuthToken(token);
     }   
-    const res = await axios.get('http://localhost:8000/profile/')
+    const res = await axios.get(`${URL_DEPLOY}profile/`)
     dispatch({
         type:SET_HISTORY,
         payload:res.data

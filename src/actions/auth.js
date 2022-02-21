@@ -13,12 +13,12 @@ import { setAlert } from './alert';
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-
+const URL_DEPLOY = 'https://amazon-cln.herokuapp.com/'
 
 // Register User
 export const get_location = (latitude,longitude) => async (dispatch,getState)=>{
 
-  const res = await axios.post('http://localhost:8000/store/address/',{latitude,longitude})
+  const res = await axios.post(`${URL_DEPLOY}store/address/`,{latitude,longitude})
   console.log(res.data)
   dispatch({
     type: GET_LOCATION,
@@ -32,7 +32,7 @@ export const loadUser = () => async (dispatch,getState) => {
     setAuthToken(localStorage.token); // for global axios request header
   } // if there is a token in the local storage then set it setAuthToken function to set in every request
 
-    const res = await axios.get('http://localhost:8000/auth/user/');
+    const res = await axios.get(`${URL_DEPLOY}auth/user/`);
     // authenticate users in the backend. If there is a token available, the backend sends user infor as a response
     dispatch({
       type: USER_LOADED,
@@ -55,7 +55,7 @@ export const register =
 
     try {
       const res = await axios.post(
-        'http://127.0.0.1:8000/auth/register/',{ username, email, password1, password2 }
+        `${URL_DEPLOY}auth/register/`,{ username, email, password1, password2 }
       );
 
       dispatch({
@@ -98,7 +98,7 @@ export const login = (email, password) => async (dispatch,history) => {
   //We use axios to send a post request to /api/users to register.
   //The register action takes in the response from the '/api/users' backend using the post method and store it in the res variable
   try {
-    const res = await axios.post('http://127.0.0.1:8000/auth/login/', { email, password });
+    const res = await axios.post(`${URL_DEPLOY}auth/login/`, { email, password });
 
     dispatch({
       type: LOGIN_SUCCESS,

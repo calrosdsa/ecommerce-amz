@@ -1,10 +1,11 @@
 import axios from "axios"
 import { ADD_TO_CART, FILTER_PROPERTIES, GET_CATEGORIES, GET_CATEGORY, GET_CATEGORY_TREND, GET_CATEGORY_TREND2, GET_CATEGORY_TREND3, GET_CATEGORY_TREND4, GET_CATEGORY_TREND5, GET_CATEGORY_TREND6, GET_CATEGORY_TREND7, GET_PRODUCT, GET_PRODUCTS,
      GET_PRODUCT_FILTER, GET_REVIEWS, ITEM_LENGTH, POST_ERROR, QUANTITY, REMOVE_ALL_ITEMS, REMOVE_FROM_CART, REVIEW, SELECT_TOTAL, UPDATE_QUANTITY} from "./types"
-
+ 
+const URL_DEPLOY = 'https://amazon-cln.herokuapp.com/'
 
 export const get_reviews = (id,query) => async(dispatch) =>{
-    const res = await axios.get(`http://localhost:8000/store/review/${id}/${query}`)
+    const res = await axios.get(`${URL_DEPLOY}store/review/${id}/${query}`)
     dispatch({
         type:GET_REVIEWS,
         payload: res.data
@@ -19,7 +20,7 @@ export const get_reviews = (id,query) => async(dispatch) =>{
 }
 
 export const filter_properties = (parent_id) =>async(dispatch)=>{
-    const res = await axios.get(`http://localhost:8000/store/category/${parent_id}/`)
+    const res = await axios.get(`${URL_DEPLOY}store/category/${parent_id}/`)
     dispatch({
         type:FILTER_PROPERTIES,
         payload: res.data
@@ -27,28 +28,28 @@ export const filter_properties = (parent_id) =>async(dispatch)=>{
 }
 
 export const get_category_last4 = (treeId) =>async(dispatch)=>{
-    const res = await axios.get(`http://localhost:8000/store/category2/${treeId}/`)
+    const res = await axios.get(`${URL_DEPLOY}store/category2/${treeId}/`)
     dispatch({
             type:GET_CATEGORY_TREND4,
             payload: res.data
         })
     }
 export const get_category_last5 = (treeId) =>async(dispatch)=>{
-    const res = await axios.get(`http://localhost:8000/store/category3/${treeId}/`)
+    const res = await axios.get(`${URL_DEPLOY}store/category3/${treeId}/`)
     dispatch({
             type:GET_CATEGORY_TREND5,
             payload: res.data
         })
     }
     export const get_category_last6 = (treeId) =>async(dispatch)=>{
-    const res = await axios.get(`http://localhost:8000/store/category3/${treeId}/`)
+    const res = await axios.get(`${URL_DEPLOY}store/category3/${treeId}/`)
     dispatch({
             type:GET_CATEGORY_TREND6,
             payload: res.data
         })
     }
     export const get_category_last7 = (treeId) =>async(dispatch)=>{
-    const res = await axios.get(`http://localhost:8000/store/category3/${treeId}/`)
+    const res = await axios.get(`${URL_DEPLOY}store/category3/${treeId}/`)
     dispatch({
             type:GET_CATEGORY_TREND7,
             payload: res.data
@@ -56,7 +57,7 @@ export const get_category_last5 = (treeId) =>async(dispatch)=>{
     }
     
 export const get_category_last3 = (treeId) =>async(dispatch)=>{
-        const res = await axios.get(`http://localhost:8000/store/category2/${treeId}/`)
+        const res = await axios.get(`${URL_DEPLOY}store/category2/${treeId}/`)
         dispatch({
             type:GET_CATEGORY_TREND3,
             payload: res.data
@@ -64,7 +65,7 @@ export const get_category_last3 = (treeId) =>async(dispatch)=>{
     }
 
 export const get_category_last2 = (treeId) =>async(dispatch)=>{
-    const res = await axios.get(`http://localhost:8000/store/category2/${treeId}/`)
+    const res = await axios.get(`${URL_DEPLOY}store/category2/${treeId}/`)
     dispatch({
         type:GET_CATEGORY_TREND2,
         payload: res.data
@@ -72,7 +73,7 @@ export const get_category_last2 = (treeId) =>async(dispatch)=>{
 }
 
 export const get_category_last = (treeId) =>async(dispatch)=>{
-    const res = await axios.get(`http://localhost:8000/store/category2/${treeId}/`)
+    const res = await axios.get(`${URL_DEPLOY}store/category2/${treeId}/`)
     dispatch({
         type:GET_CATEGORY_TREND,
         payload: res.data
@@ -80,7 +81,7 @@ export const get_category_last = (treeId) =>async(dispatch)=>{
 }
 
 export const get_product = (slug) =>async(dispatch) =>{
-    const res = await axios.get(`http://localhost:8000/store/${slug}/`)
+    const res = await axios.get(`${URL_DEPLOY}store/${slug}/`)
     dispatch({
         type:GET_PRODUCT,
         payload: res.data
@@ -88,14 +89,14 @@ export const get_product = (slug) =>async(dispatch) =>{
 }
 
 export const get_filter = (query)=>async(dispatch)=>{
-    const res = await axios.get(`http://localhost:8000/store/filter/${query}`)
+    const res = await axios.get(`${URL_DEPLOY}store/filter/${query}`)
     dispatch({
         type:GET_PRODUCT_FILTER,
         payload : res.data
     })
 }
 export const get_categories =() =>async(dispatch)=>{
-    const res = await axios.get('http://localhost:8000/store/categories/')
+    const res = await axios.get(`${URL_DEPLOY}store/categories/`)
     console.log('get_categoriea')
     dispatch({
         type:GET_CATEGORIES,
@@ -104,7 +105,7 @@ export const get_categories =() =>async(dispatch)=>{
 }
 
 export const get_category =(id) =>async(dispatch)=>{
-    const res = await axios.get(`http://localhost:8000/store/categories/${id}/`)
+    const res = await axios.get(`${URL_DEPLOY}store/categories/${id}/`)
     dispatch({
         type:GET_CATEGORY,
         payload:res.data
@@ -113,7 +114,7 @@ export const get_category =(id) =>async(dispatch)=>{
 
 export const get_products = ()=>async (dispatch)=>{
 
-        const res = await axios.get('http://localhost:8000/store/')
+        const res = await axios.get(`${URL_DEPLOY}store/`)
         dispatch({
             type : GET_PRODUCTS,
             payload: res.data,
