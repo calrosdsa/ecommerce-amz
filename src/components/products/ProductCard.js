@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-function ProductCard({category_trend3}) {
+function ProductCard({category_trend3,token}) {
   return (
-   <div className="flex relative overflow-scroll sm:overflow-hidden  space-x-1 sm:space-x-0 lg:gap-x-5  gap-3 xl:gap-3 
+    <div className="flex relative overflow-scroll sm:overflow-hidden  space-x-1 sm:space-x-0 lg:gap-x-5  gap-3 xl:gap-3 
     sm:grid sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 ">
+      {token ?
   <div className=" px-2 py-1  min-w-[200px]  sm:min-w-[210px] md:min-w-[100px] lg:min-w-[230px] 
   justify-center mx-1 sm:h-full  bg-white">
 
@@ -20,6 +21,14 @@ function ProductCard({category_trend3}) {
       ))}
       </div>
   </div>
+  :
+  <div className=" px-2 py-1   min-w-[200px] sm:min-w-[210px] md:min-w-[100px] lg:min-w-[230px] xl:  h-[210px] justify-center mx-1 sm:h-full  bg-white">
+  <h1 className=' font-semibold sm:text-xl'>Trending spring styles</h1>
+  <img className=" py-4 2xl:px-4 2xl:py-7 sm:w-[246px] sm:h-64 xl:h-72  xl:w-72 -mt-3 h-44 w-44  "
+   src='https://images-na.ssl-images-amazon.com/images/G/01/AMAZON_FASHION/2022/SITE_FLIPS/SPR_22/GW/DCC/GW_D_CatCard_AF_MAR_W_1x._SY304_CB628454624_.jpg' alt="" />
+  <h1 className='text-cyan-600 text-sm -mt-3'>See more</h1>
+</div>
+    }
   <div className=" px-2 py-1   min-w-[200px] sm:min-w-[210px] md:min-w-[100px] lg:min-w-[230px] xl:  h-[210px] justify-center mx-1 sm:h-full  bg-white">
     <h1 className=' font-semibold sm:text-xl'>Shop by Category</h1>
     <div className='grid grid-cols-2 gap-1 sm:mt-4 sm:gap-4 mt-2 xl:mt-10 xl:gap-6'>

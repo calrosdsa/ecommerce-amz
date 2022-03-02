@@ -72,11 +72,14 @@ function App() {
       
       dispatch(get_category_last4(newArray3[random2]))
       
-    } 
+    } else{
+      dispatch(get_category_last(2))
+      dispatch(get_category_last2(5))
+      dispatch(get_category_last4(7))
+    }
     dispatch(get_category_last5(2))
-    dispatch(get_category_last6(5))
-    dispatch(get_category_last7(7))
-    
+    dispatch(get_category_last6(3))
+    dispatch(get_category_last7(1))
     
     if (token){
       setAuthToken(token);
@@ -100,7 +103,7 @@ function App() {
       <Banner/>          
       </div>
         <div className=" 2xl:-mt-64 lg:-mt-32 2xl:w-3/4 2xl:mx-auto z-20 sm:px-10 xl:px-10 2xl:px-2 md:px-2 -mt-14 sm:-mt-20 pr-1 ">
-      <ProductCard  category_trend3={category_trend3}/>
+      <ProductCard token={token}  category_trend3={category_trend3}/>
       <CategoryLastView category_trend={category_trend5} title={'Popular products in PC internationally'}/>
       {treeId&&
       <CategoryLastView category_trend={category_trend} title={'More items to consider'}/>
@@ -112,13 +115,20 @@ function App() {
       <CategoryLastView category_trend={category_trend3} title={'Inspired by your shopping trends'}/>
     }
       <div ref={endRef}>
+      {token  &&
+      <div>
       <ProductCard2 category_trend={category_trend} category_trend2={category_trend2} category_trend4={category_trend4}/>
       <CategoryLastView category_trend={category_trend2} title={'More top picks for you'}/>
+      </div>
+}
       <CategoryLastView category_trend={category_trend7} title={'Popular products in Beauty & Personal Care'}/>
 
       </div>
+      
       </div>
-        {history !== [] ?
+      {token&&
+      <div>
+        {history === [] ?
         <div className="bg-white mt-4 px-2 lg:px-6">
             <RelatedToHistory history={history} history_related={history_related} />
             <History history={history}/>
@@ -132,6 +142,8 @@ function App() {
           </div>
         </div>
           }
+          </div>
+        }
         </div>
 </div>
   );
