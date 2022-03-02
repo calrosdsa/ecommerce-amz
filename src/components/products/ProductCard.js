@@ -10,10 +10,10 @@ function ProductCard({category_trend3}) {
   justify-center mx-1 sm:h-full  bg-white">
 
       <h1 className=' font-semibold sm:text-xl'>Keep shopping for</h1>
-      <div className=' bg-white grid grid-cols-2 py-1 sm:py-3 gap-1 sm:mt-2  sm:gap-4 mb-1  -mt-2'>
+      <div className=' bg-white grid grid-cols-2 py-1 sm:py-3 gap-1  sm:gap-4 mb-1  '>
     {category_trend3.slice(0,4).map((item,i)=>(
       <Link key={i} className=' place-self-center ' to={`/product/${item.slug}`}>
-      <img className=" w-14 h-14 sm:h-24 sm:w-24  " 
+      <img className=" w-14 h-14 sm:h-24 sm:w-24 object-contain  " 
        src={`https://res.cloudinary.com/mer/image/upload/v1/${item.image}`}  alt="" />
        <h1 className='  line-clamp-1 text-xs'>{item.title}</h1>
        </Link>

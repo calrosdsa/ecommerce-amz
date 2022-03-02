@@ -67,7 +67,7 @@ function App() {
       
       const random2 = Math.floor(Math.random() * newArray2.length);
       dispatch(get_category_last(treeId.slice(-1)[0]))
-      dispatch(get_category_last2(treeId.length === 1 ? newArray[random] : treeId.slice(-2)[0]))
+      dispatch(get_category_last2(treeId.slice(-2)[0]))
       
       dispatch(get_category_last4(newArray3[random2]))
       
