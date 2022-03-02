@@ -57,24 +57,25 @@ function App() {
     if(treeId){
       
       
-      const categories2 = [8,11,17,15];
+      const categories2 = [2,5,7];
       
       const newArray = categories2.filter(function(f) { return f !== treeId[0] })
       const newArray2 = categories2.filter(function(f) { return f !== treeId[1]})
+      console.log(newArray2)
       const newArray3 = newArray2.filter(function(f) { return f !== treeId[2]})
-
+      console.log(newArray3)
       const random = Math.floor(Math.random() * newArray.length);
       
       const random2 = Math.floor(Math.random() * newArray2.length);
       dispatch(get_category_last(treeId.slice(-1)[0]))
-      dispatch(get_category_last2(treeId.slice(-2)[0]))
+      dispatch(get_category_last2(treeId.length === 1 ? newArray[random] : treeId.slice(-2)[0]))
       
       dispatch(get_category_last4(newArray3[random2]))
       
     } 
     dispatch(get_category_last5(2))
-    dispatch(get_category_last6(3))
-    dispatch(get_category_last7(1))
+    dispatch(get_category_last6(5))
+    dispatch(get_category_last7(7))
     
     
     if (token){

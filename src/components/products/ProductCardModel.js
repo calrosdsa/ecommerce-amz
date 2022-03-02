@@ -68,7 +68,7 @@ function ProductCardModel({DiscountPrice,category_trend,title}) {
        {category_trend.slice(0,4).map((item,i)=>(
            <div className={i == 0 ? 'ring-2 p-1 border-[1px] border-black' : 'p-1 border-[1px] border-black' }
             key={i} ref={addRefs} onClick={()=>handleItem(item,i)}>
-             <img  className='h-10 w-10 sm:h-14 sm:w-14 lg:h-10 lg:w-10 xl:h-13 xl:w-13'  src={`https://res.cloudinary.com/mer/image/upload/v1/${item.image}`} alt="" />
+             <img  className='h-10 w-10 sm:h-14 sm:w-14 lg:h-10 lg:w-10 xl:h-13 xl:w-13 object-contain'  src={`https://res.cloudinary.com/mer/image/upload/v1/${item.image}`} alt="" />
            </div>
        ))}
        </div>
