@@ -111,14 +111,12 @@ function App() {
       {category  &&
       <CategoryLastView category_trend={category_trend3} title={'Inspired by your shopping trends'}/>
     }
-        {treeId&&
       <div ref={endRef}>
       <ProductCard2 category_trend={category_trend} category_trend2={category_trend2} category_trend4={category_trend4}/>
       <CategoryLastView category_trend={category_trend2} title={'More top picks for you'}/>
       <CategoryLastView category_trend={category_trend7} title={'Popular products in Beauty & Personal Care'}/>
 
       </div>
-      }
       </div>
         {history !== [] ?
         <div className="bg-white mt-4 px-2 lg:px-6">
